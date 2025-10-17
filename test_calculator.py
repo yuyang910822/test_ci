@@ -11,5 +11,5 @@ class TestCalculator(unittest.TestCase):
     # 测试减法：故意留一个错误（方便看CI报错效果）
     def test_subtract(self):
         self.assertEqual(subtract(5, 2), 3)  # 正确
-        self.assertEqual(subtract(3, 5), -1)  # 错误！3-5应该是-2，这里写成-1
+        self.assertEqual(subtract(3, 5), -2)  # 错误！3-5应该是-2，这里写成-1
 

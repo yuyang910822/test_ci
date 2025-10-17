@@ -1,33 +1,27 @@
-name: 自动测试工作流  # 工作流名称，随便起
+name: 自动测试工作流
 
-# 触发条件：当代码推送到main分支，或有人提交PR到main分支时，自动执行
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-# 定义要执行的任务
 jobs:
-  test_code:  # 任务名称
-    runs-on: ubuntu-latest  # 在GitHub的Ubuntu服务器上运行
+  test-code:  # 这里把“测试代码”改成了“test-code”（符合命名规则）
+    runs-on: ubuntu-latest
 
     steps:
-      # 步骤1：把远程仓库的代码拉到服务器上
       - name: 拉取代码
-        uses: actions/checkout@v4  # 官方提供的拉代码工具
+        uses: actions/checkout@v4
 
-      # 步骤2：安装Python环境（因为我们是Python项目）
       - name: 安装Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"  # 指定Python版本
+          python-version: "3.10"
 
-      # 步骤3：安装测试需要的依赖（这里不需要额外依赖，因为用的是Python自带的unittest）
       - name: 准备环境
         run: |
-          python -m pip install --upgrade pip  # 升级pip
+          python -m pip install --upgrade pip
 
-      # 步骤4：运行测试
       - name: 执行测试
-        run: python -m unittest test_calculator.py  # 运行测试命令
+        run: python -m unittest test_calculator.py
