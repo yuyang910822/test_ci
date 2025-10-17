@@ -9,7 +9,7 @@ on:
 
 # 定义要执行的任务
 jobs:
-  测试代码:  # 任务名称
+  test_code:  # 任务名称
     runs-on: ubuntu-latest  # 在GitHub的Ubuntu服务器上运行
 
     steps:
